@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Good Vibes">
+<title>Good Vibes for Cieara</title>
+<style>
+  /* Full-screen Colorado mountains background */
+  body, html{
+    height:100%;
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background: url('https://images.unsplash.com/photo-1504198458649-3128b932f49b?auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+    background-size: cover;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* Overlay card */
+  .card{
+    width:92vw;
+    max-width:600px;
+    background: rgba(255,255,255,0.85);
+    border-radius:28px;
+    box-shadow: 0 10px 40px rgba(15,23,36,0.25);
+    padding:28px;
+    text-align:center;
+    backdrop-filter: blur(8px) saturate(120%);
+  }
+
+  h1{
+    margin:0 0 14px 0;
+    font-size:1.8rem;
+    line-height:1.3;
+    letter-spacing:-0.01em;
+    color:#0b1220;
+  }
+
+  p.lead{
+    margin:0 0 22px 0;
+    font-size:1rem;
+    opacity:0.9;
+    color:#0b1220;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:16px 22px;
+    margin-top:12px;
+    border-radius:16px;
+    font-size:1.1rem;
+    font-weight:700;
+    text-decoration:none;
+    color:white;
+    background: linear-gradient(90deg,#ff8ab3,#ff5a8a);
+    box-shadow: 0 6px 20px rgba(255,90,138,0.25);
+    cursor:pointer;
+    touch-action: manipulation;
+  }
+
+  #status{
+    margin-top:12px;
+    font-size:1rem;
+    color:#0b1220;
+    opacity:0.85;
+  }
+
+  .sun{
+    width:120px;height:120px;margin:0 auto 18px auto;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff7c9, #ffd86b 30%, #ffb86b 60%, #ff8a6a 100%);
+    display:grid; place-items:center;
+    font-size:2.5rem;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float{
+    0%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+    100%{ transform: translateY(0); }
+  }
+
+  /* Reminder styling */
+  #reminder{
+    margin-top:16px;
+    font-size:0.95rem;
+    color:#0b1220;
+    font-weight:500;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 8px 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="sun">✨</div>
+  <h1 id="title"></h1>
+  <p class="lead">Here’s a pocket of color and good vibes to carry with you.</p>
+  <button id="vibeBtn" class="btn"></button>
+  <div id="status"></div>
+  <div id="reminder">🌟 Reminder: Update Cieara and Andrew's Spotify playlist!</div>
+</main>
+
+<script>
+/* --- Random messages --- */
+const titles = [
+  "I hope you have a FANTASTIC day, Cieara ✨",
+  "Sending you good vibes, Cieara 🌈",
+  "You’ve got this, Cieara 💪",
+  "Stay awesome, Cieara 🌟",
+  "Today is your day, Cieara 🌞",
+  "Positive energy only, Cieara 💖"
+];
+
+const buttonTexts = [
+  "Catch the good vibes 🎉",
+  "Get your daily sparkle ✨",
+  "Spread the joy 🌈",
+  "Absorb the positivity 💖",
+  "Feel the energy 🔥"
+];
+
+const statusMessages = [
+  "Vibes delivered, Cieara! ✨",
+  "Your day just got brighter 🌞",
+  "Good energy incoming 💫",
+  "Keep shining, Cieara 🌟",
+  "Positive vibes activated 🌈"
+];
+
+/* --- Utility function --- */
+function randomItem(array){
+  return array[Math.floor(Math.random() * array.length)];
+}
+
+/* --- Set random heading and button text on page load --- */
+document.getElementById("title").textContent = randomItem(titles);
+const vibeBtn = document.getElementById("vibeBtn");
+vibeBtn.textContent = randomItem(buttonTexts);
+
+/* --- Button click: random status message --- */
+const statusEl = document.getElementById("status");
+vibeBtn.addEventListener("click", ()=>{
+  statusEl.textContent = randomItem(statusMessages);
+
+  // animate sun
+  const sun = document.querySelector(".sun");
+  sun.animate([
+    { transform: 'scale(1) rotate(0deg)' },
+    { transform: 'scale(1.12) rotate(12deg)' },
+    { transform: 'scale(1) rotate(0deg)' }
+  ], { duration: 900, easing: 'cubic-bezier(.2,.9,.3,1)' });
+});
+</script>
+</body>
+</html>
