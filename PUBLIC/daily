@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Dad Joke for Brooke</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #faf3dd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+            text-align: center;
+            font-size: 1.6rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        {{JOKE}}
+    </div>
+</body>
+</html>
